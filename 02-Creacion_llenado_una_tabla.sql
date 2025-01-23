@@ -50,3 +50,36 @@ select * from categoria;
 
 select * from categoria
 order by categoriaID asc;
+-- Tabla  Productos --
+
+create table producto1(
+productId int not null,
+nombreProducto varchar (20) not null,
+descripcion varchar (80),
+precio money not null,
+existencia int not null,
+categoriaID int null,
+constraint pk_producto1
+primary key (productId),
+constraint unico_nombreProducto
+unique (nombreProducto),
+constraint chk_precio
+check (precio > 0.0 and precio <= 1000),
+constraint chk_existencia
+check (existencia > 0 and existencia <= 200),
+constraint fk_categoria_producto1
+foreign key (categoriaID)
+references categoria (categoriaID)
+)
+select * from categoria;
+
+select * from producto1 where categoriaID = 5;
+
+insert into producto1
+values (1, 'Miguelito', 'Dulce para la lobriz', 34.5, 45, 5);
+
+insert into producto1
+values (2, 'Tupsi Pop', 'Dulce resano para el diente', 1000, 45, 5);
+
+insert into producto1
+values (3, 'Plancha', 'Plancha facil el suit', 256.3, 45, 2);
