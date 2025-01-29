@@ -1,6 +1,8 @@
 -- Lenguaje SQL-LMD (Insert, Update, Delete, Select CRUD)
 --Consultas Simples 
+
 use Northwind;
+
 --Mostrar todos los clientes, prveedores, categorias, prodcutos, ordenes, detalle de orden con todas las columnas de datos de la empresa
 
 Select * from Customers;
@@ -20,9 +22,11 @@ Select * from Categories;
 Select * from [Order Details];
 
 -- Proyeccion
+
 Select ProductID, ProductName, UnitPrice, UnitsInStock from Products;
 
 --Seleccionar o mostrar el numero d eempleado su primer nombre, su cargo, ciudad y pais
+
 Select EmployeeID, FirstName, Title, City, Country from Employees;
 
 --Alias de columna
@@ -32,6 +36,7 @@ Select EmployeeID, FirstName, Title, City, Country from Employees;
 Select EmployeeID as [Numero Empleado], FirstName as primerNombre, Title as Cargo, City as Ciudad, Country 'Pais' from Employees;
 
 --Campo calculado, seleccionar el importe de cada uno de los productos vendidos en una orden 
+
 select *,(UnitPrice * Quantity) as Import from [Order Details];
 
 --Seleccionar las fechas de orden, año, dia, cliente que las ordeno y el empleado que las realizo
@@ -44,9 +49,21 @@ CustomerID,
 EmployeeID  
 from Orders;
 
+-- Filas Duplicadas
+
+select * from Customers;
+
+--Mostrar los paises donde se tienen clientes, mostrando los paises
+
+select distinct Country as Pais from Customers order by Country;
+
+-- Distinct se usa para solo mostrar los datos distintos
+
 -- Clausula Where
--- Operadores Relacionales (<,>,=,<=,>=,!= o <>)
-Select * from Customers;
+
+-- Operadores Relacionales o test de comparación (<,>,=,<=,>=,!= o <>)
+
+Select * from Customers ;
 
 --Seleccionar el cliente BOLID
 
@@ -67,3 +84,24 @@ select ProductName as 'Nombre del Producto', UnitsInStock as Existencia, Categor
 select OrderDate as 'Fecha de Orden', RequiredDate as 'Fecha de Entrega' , ShippedDate as 'Fecha de Envio', CustomerID as Cliente from Orders where year (OrderDate) ='1996';
 
 select * from Orders;
+
+-- Mostrar todas las ordenes de compra donde la cantidad de productos comprados sea mayor a 5 
+
+select Quantity as Cantidad from [Order Details] WHERE Quantity > 40;
+
+--Mostrar el nombre completo del empleado, su numero de empleado, fecha de nacimiento, la ciudad y fecha de contratacion y esta debe de ser de aquellos que fueron contratados despues de 1993,
+--Los resultados en sus encabezados deben ser en español.
+
+Select (FirstName + ' ' + LastName) as 'Nombre Completo', EmployeeID as 'Numero de Empleado', BirthDate as 'Fecha de Nacimiento', City as Ciudad, HireDate as 'Fecha de Contratacion' from Employees where YEAR (HireDate) = 1993;
+
+Select concat(FirstName, ' ', LastName) as 'Nombre Completo', EmployeeID as 'Numero de Empleado', BirthDate as 'Fecha de Nacimiento', City as Ciudad, HireDate as 'Fecha de Contratacion' from Employees where YEAR (HireDate) = 1993;
+
+-- Mostrar los empleados que no son dirigidos por el jefe 2
+
+select EmployeeID , concat(FirstName, ' ', LastName) as 'Nombre Completo' , ReportsTo from Employees where ReportsTo != 2 ;
+
+select * from Employees where ReportsTo != 2 ;
+
+-- Seleccionar todos los empleados que no tengan un empleado
+
+select * from Employees where ReportsTo is null;
