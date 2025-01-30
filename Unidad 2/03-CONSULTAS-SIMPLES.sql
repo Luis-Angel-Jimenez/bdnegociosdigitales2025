@@ -148,26 +148,23 @@ select CustomerID, CompanyName, ContactName, Country, Fax from Customers where N
 
 select CustomerID, CompanyName, ContactName, Country, Fax from Customers where (Country != 'Mexico' and Country != 'USA') and Fax is not null;
 
---Seleccionar Empleados que no viven en Londres o Seattle y que fueron contratados despues de 1995
+--Seleccionar los pedidos con  un flete mayor a 100 enviados a brasil o  argentina, pero no enviados por el transportista1
 
-Select CONCAT(FirstName, ' ', LastName) as 'Nombre Completo', HireDate, City, Country from Employees where NOT(City = 'London' or City = 'Seattle') and year(HireDate) >= 1992;
+Select OrderID, OrderDate, Freight, ShipVia, ShipCountry from Orders where Freight >= 100 and (ShipCountry = 'Brazil' or ShipCountry = 'Argentina') and  NOT ShipVia = 1;
 
-Select CONCAT(FirstName, ' ', LastName) as 'Nombre Completo', HireDate, City, Country from Employees where City <> 'London' and City <> 'Seattle' and year(HireDate) >= 1992;
+--1. Productos con categoría 1, 3 o 5 32
 
---Clausula IN (OR)
+select * from Products where CategoryID = 1 or CategoryID = 3 or CategoryID = 5 order by CategoryID; 
 
--- Seleccionar los productos con categorias 1, 3 o 5
+--2. Clientes de México, Brasil o Argentina
 
-Select ProductName, CategoryID, UnitPrice from Products where CategoryID = 1 or CategoryID = 3 or CategoryID = 5 order by CategoryID;
+select * from Customers;
+--3. Pedidos enviados por los transportistas 1, 2 o 3 y con flete mayor a 50
+--4. Empleados que trabajan en Londres, Seattle o Buenos Aires
+--5. Pedidos de clientes en Francia o Alemania, pero con un flete menor a 100
+--6. Productos con categoría 2, 4 o 6 y que NO estén descontinuados
+--7. Clientes que NO son de Alemania, Reino Unido ni Canadá
+--8. Pedidos enviados por transportistas 2 o 3, pero que NO sean a USA ni Canadá
+--9. Empleados que trabajan en 'London' o 'Seattle' y fueron contratados después de 1995
+--10. Productos de categorías 1, 3 o 5 con stock mayor a 50 y que NO están descontinuados
 
-Select ProductName, CategoryID, UnitPrice from Products where CategoryID IN (1,3,5) order by CategoryID;
-
---Seleccionar todas ordenes de la region RJ, Tachira y que no tengan region asignada
-
-Select OrderID, OrderDate, ShipRegion, ShipCountry from Orders where ShipRegion IN ('RJ', 'Táchira') or ShipRegion is null;
-
---seleccionar las ordenes que sse tengan cantidades de 12, 9 o 40 y descuento de 0.15 o 0.05
-
-Select OrderID, Quantity, Discount from [Order Details] where Quantity in (12, 9, 40) and Discount in (0.15, 0.05) order by Quantity;
-
---Clausula Between
