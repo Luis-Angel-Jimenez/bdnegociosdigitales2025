@@ -170,4 +170,70 @@ Select OrderID, OrderDate, ShipRegion, ShipCountry from Orders where ShipRegion 
 
 Select OrderID, Quantity, Discount from [Order Details] where Quantity in (12, 9, 40) and Discount in (0.15, 0.05) order by Quantity;
 
---Clausula Between
+--Clausula Between (Siempre va en el WHERE)
+
+-- beetwen valorInicial and valorFinal
+--Mostrar los productos con un precio entre 10 y 50
+
+select * from Products where UnitPrice >= 10 and UnitPrice <=50;
+
+select * from Products where UnitPrice between 10 and 50;
+
+--Seleccionar todos los pedidos realizados entre el primero de enero y el 30 de junio de 1997
+
+Select OrderID, OrderDate, ShipVia, ShipCountry from Orders where MONTH(OrderDate) between 01 and 06 and day(OrderDate) between 01 and 30 and year(OrderDate) = 1997;
+
+Select OrderID, OrderDate, ShipVia, ShipCountry from Orders where OrderDate between '1997-01-01' and  '1997-06-30';
+
+select * from Orders
+
+--Seleccionar todos los empleados contratados entre 1992 y 1994 que trabajan en londres
+
+Select EmployeeID, CONCAT(FirstName, ' ', LastName) as 'Nombre Completo', Title, HireDate, City from Employees where (year(HireDate) between 1992 and 1994) and City = 'London' ;
+
+Select * from Employees
+
+select OrderID as 'Numero de orden', OrderDate as 'Fecha de Orden', RequiredDate as 'Fecha de Entrega', Freight as 'Peso', ShipCountry as 'Pais' from orders where Freight >=50 and Freight<=200 and (ShipCountry = 'France' or ShipCountry = 'Germany');
+
+select OrderID as 'Numero de orden', OrderDate as 'Fecha de Orden', RequiredDate as 'Fecha de Entrega', Freight as 'Peso', ShipCountry as 'Pais' from orders where Freight between 50 and 200 and (ShipCountry in ('France', 'Germany'));
+
+--Seleccionar todos los productos que tengan un precio entre 5 y 20 dolares o que sean de la categoria 1, 2 o 3
+
+Select ProductID, ProductName, UnitPrice, UnitsInStock, CategoryID from Products where UnitPrice between 5 and 20 or CategoryID in (1, 2, 3);
+
+Select ProductName, CategoryID, UnitPrice from Products where UnitPrice >=5 and UnitPrice <= 20 or (CategoryID = 1 or CategoryID = 2 or CategoryID = 3);
+
+--Empleados con numero de trabajador entre 3 y 7 que no trabajan en londres ni seattle
+
+select EmployeeID as 'Numero de Empledado', CONCAT(FirstName, ' ', LastName) as 'Nombre Completo', City as Ciudad from Employees where EmployeeID between 3 and 7 and NOT City in ('London', 'Seattle');
+
+select EmployeeID as 'Numero de Empledado', CONCAT(FirstName, ' ', LastName) as 'Nombre Completo', City as Ciudad from Employees where EmployeeID >= 3 AND EmployeeID <= 7 and (City <> 'London' and City <> 'Seattle');
+
+select EmployeeID as 'Numero de Empledado', CONCAT(FirstName, ' ', LastName) as 'Nombre Completo', City as Ciudad from Employees where EmployeeID >= 3 AND EmployeeID <= 7 and not City in ('London', 'Seattle');
+
+--Clausula Like Patrones
+-- Patrones 
+-- 1) % (Porcentaje) -> Representa cero o mas caracteres en el patron de busqueda
+-- 2) _ (Guion Bajo) -> Representa exactamente un caracter en el patron de busqueda
+-- 3) [] (Corchetes) -> Se utiliza para definir un conjunto de caracteres, buscando cualquiera de ellos en la posicion especifica
+-- 4) [^] (Acento Circunflenjo) -> Se utiliza para buscar caracteres que no estan dentro del conjunto especifico
+
+-- Buscar los productos que comienzan con C
+
+Select * from Products where ProductName like 'C%';
+
+Select * from Products where ProductName like 'Ch%';
+
+Select * from Products where ProductName like 'Cha%' and UnitPrice = 18;
+
+-- Buscar todos los productos que terminen con E
+
+Select * from Products where ProductName like '%E';
+
+-- Seleccionar todos los clientes cuyo nombre de empresa contiene co en cualquier parte
+
+select * from Customers where CompanyName like '%co%';
+
+-- Seleccionar los empleados cuyo nombre comienze con "A" y tenga exactamente 5 caracteres
+
+Select * from Employees where FirstName like 'A_____';
