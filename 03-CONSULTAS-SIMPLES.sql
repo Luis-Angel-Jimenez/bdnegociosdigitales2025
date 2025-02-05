@@ -237,3 +237,38 @@ select * from Customers where CompanyName like '%co%';
 -- Seleccionar los empleados cuyo nombre comienze con "A" y tenga exactamente 5 caracteres
 
 Select * from Employees where FirstName like 'A_____';
+
+-- Seleccionar los productos que comiencen con A o B
+Select * from Products where ProductName like '[ABC]%';
+
+Select * from Products where ProductName like '[A-M]%';
+
+-- Seleccionar todos los productos que no comiencen con A o B
+
+Select * from Products where ProductName like '[^AB]%';
+
+-- Seleccionar todos los prodcutos donde el nombre tenga la A pero no la E
+
+Select * from Products where ProductName like 'B[^E]%';
+
+-- Clausula Order by
+-- 
+Select ProductID, ProductName, UnitPrice, UnitsInStock from Products order by UnitPrice desc;
+
+Select ProductID, ProductName, UnitPrice as precio, UnitsInStock from Products order by 'precio' desc;
+
+-- Seleccionar los clientes ordeados por el pais y dentro por ciudad
+
+Select CustomerID, Country, City from Customers WHERE Country in ('Brazil', 'Germany') order by Country asc, City asc;
+
+Select CustomerID, Country, City from Customers WHERE Country in ('Brazil', 'Germany') order by Country asc, City desc;
+
+Select CustomerID, Country, City from Customers WHERE (Country ='Brazil' or Country = 'Germany') and Region is not null order by Country asc, City desc;
+
+Select CustomerID, Country, City from Customers WHERE (Country ='Brazil' or Country = 'Germany') and Region is not null order by Country, City desc;
+
+Select * from Customers order by Country asc, City desc;
+
+Select * from Customers order by Country desc, City asc;
+
+Select * from Customers order by Country desc, City desc;
