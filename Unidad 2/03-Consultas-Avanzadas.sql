@@ -109,5 +109,72 @@ INNER JOIN [Order Details] as OD on O.OrderID = OD.OrderID group by E.FirstName,
 
 Select COUNT(O.OrderID) as ventas, E.EmployeeID from Orders as O INNER JOIN Employees as E on O.EmployeeID = E.EmployeeID group by E.EmployeeID; 
 
+--11. Listar los clientes y la cantidad de pedidos que han realizado
 
-Select GETDATE()
+Select COUNT(*), CU.CompanyName, O.OrderID from Customers as CU inner join Orders as O on CU.CustomerID = O.CustomerID group by O.OrderID;
+
+Select c.CompanyName as 'Cliente', COUNT(*) as 'Pedidos' from Customers as c
+inner join Orders as o
+on c.CustomerID = o.CustomerID
+group by c.CompanyName
+
+--12. Obtener los empleados que han gestionado pedidos enviados a alemania
+
+Select distinct CONCAT(E.FirstName, E.LastName) as 'Nombre', ShipCountry 
+from Employees as E 
+inner join Orders as O 
+on E.EmployeeID = O.EmployeeID where ShipCountry = 'Germany';
+
+--13. Listar lod produtos junto con el nombre del proveedor y el pais de origen 
+
+Select p.ProductName as 'Nombre del producto', s.CompanyName as 'Proveedor', s.Country as 'Pais de Origen' from Products AS p inner join Suppliers AS s on p.SupplierID = s.SupplierID order by 1 asc;
+
+--14. Obtener los pedidos agrupados por pais de envio
+
+Select * from orders
+
+Select COUNT(*) as 'Numero de Pedidos', ShipCountry as 'Pais de Envio' from Orders group by ShipCountry;
+
+--15. Obtener los empleados y la cantidad de territorios en los que trabajan
+
+Select CONCAT(E.FirstName, E.LastName) as 'Nombre', COUNT(et.TerritoryID) as 'Cantidad de Territorios' from Employees as e
+inner join EmployeeTerritories as et
+on e.EmployeeID = et.EmployeeID group by CONCAT(E.FirstName, E.LastName);
+
+Select CONCAT(E.FirstName, ' ', E.LastName) as 'Nombre', t.TerritoryDescription as 'Descripcion del Territorio',
+COUNT(et.TerritoryID) as 'Cantidad de Territorios' from Employees as e
+inner join EmployeeTerritories as et
+on e.EmployeeID = et.EmployeeID 
+inner join Territories as t 
+on et.TerritoryID = t.TerritoryID
+group by CONCAT(E.FirstName, E.LastName),t.TerritoryDescription order by 'Nombre', t.TerritoryDescription desc;
+
+Select COUNT(et.TerritoryID) as 'Cantidad de Territorios', CONCAT(E.FirstName, E.LastName) as 'Nombre' from Employees as E inner join EmployeeTerritories as ET on E.EmployeeID = ET.EmployeeID group by E.FirstName, E.LastName;
+
+--16. Listar las categorias y la cantidad de productos que contienen
+
+Select COUNT(*) AS 'Cantidad de productos', C.CategoryName as 'Categoria' from Categories as C inner join Products as P on C.CategoryID = P.CategoryID group by C.CategoryID, C.CategoryName;
+
+
+Select c.CategoryName as 'Categoria',
+COUNT(p.ProductID) as 'cantidad de productos'
+from Categories as c inner join Products as p
+on c.CategoryID = p.CategoryID
+group by c.CategoryName
+
+--17. Obtener la cantidad total de productos vendidos por proveedor 
+
+select s.CompanyName as 'Proveedor',
+SUM(od.Quantity) as 'Total de productos Vendidos '
+from Suppliers as s
+inner join Products as p on s.SupplierID = p.SupplierID
+inner join [Order Details] AS od on od.ProductID = p.ProductID
+group by s.CompanyName
+order by 2 desc;
+
+
+Select P.ProductName, S.CompanyName, sum(OD.Quantity) from Products as P inner join Suppliers as S on P.SupplierID = S.SupplierID inner join [Order Details] as OD on P.ProductID = OD.ProductID;
+
+--18. Obtener la cantidad de pedidos enviados por cada empresa de transporte 
+
+--Consultas Avanzadas
