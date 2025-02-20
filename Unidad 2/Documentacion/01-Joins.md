@@ -1,3 +1,7 @@
+# INNER JOIN
+![Inner Join](../img/descarga.jpeg)
+
+```SQL
 --Join (Juntar) INNER (Default), LEFT (), RIGHT (), CROSS (), FULL (). 
 use Northwind;
 --Seleccionar todas las categorias y productos
@@ -183,7 +187,7 @@ from Orders as O inner join Shippers as S
 on O.ShipVia = S.ShipperID 
 group by S.CompanyName;
 
---19. Obtener los clientes que han realizado pedidos más de un producto
+--19. Obtener los clientes que han realizado pedidos mï¿½s de un producto
 
 Select c.CompanyName, count(distinct ProductID) as 'Numero de Productos' from 
 Customers as c
@@ -299,16 +303,6 @@ on O.OrderID = OD.OrderID
 group by C.CompanyName
 having sum(OD.Quantity * OD.UnitPrice) between 500 and 2000;
 
+```
+
 --Left join, Rigth Join, Full Join y Cross Join
-
--- 27.
-
--- 28.
-
--- 29. 
-
--- 30.
-
---Consultas Avanzadas
-
-use Northwind;
