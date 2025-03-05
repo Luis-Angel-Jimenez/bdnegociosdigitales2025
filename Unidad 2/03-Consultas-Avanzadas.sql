@@ -157,7 +157,7 @@ Select COUNT(*) AS 'Cantidad de productos', C.CategoryName as 'Categoria' from C
 
 
 Select c.CategoryName as 'Categoria',
-COUNT(p.ProductID) as 'cantidad de productos'
+COUNT(p.ProductID) as 'Cantidad de productos'
 from Categories as c inner join Products as p
 on c.CategoryID = p.CategoryID
 group by c.CategoryName
@@ -283,10 +283,10 @@ order by 1 asc;
 
 -- 25. Listar los clientes ubicados en alemania y que hayan realizado pedidos antes del 1 de enero de 1997
 
-Select C.CompanyName, C.Country, O.OrderDate 
-from Customers as C inner join Orders as O 
-on C.CustomerID = O.CustomerID 
-where C.Country = 'Germany' and O.OrderDate < '1997-01-01';
+	Select C.CompanyName, C.Country, O.OrderDate 
+	from Customers as C inner join Orders as O 
+	on C.CustomerID = O.CustomerID 
+	where C.Country = 'Germany' and O.OrderDate < '1997-01-01';
 
 -- 26.Listar los clientes que han realizado pedidos con un total entre $500 y $2000
 
@@ -301,14 +301,93 @@ having sum(OD.Quantity * OD.UnitPrice) between 500 and 2000;
 
 --Left join, Rigth Join, Full Join y Cross Join
 
--- 27.
 
--- 28.
+--Practica de utilizacion de Left Join
 
--- 29. 
+-- Seleccionar los datos que se van a utilizar para insertar en la products_new
 
--- 30.
+--ProducID, productName, customer, category, unit price, discontinued, inserted_date
+
+
+
+Select * from Categories
+
+insert into Categories 
+values ('Fast Foood', 'Comida Chatarra', null)
+
+Select distinct c.CategoryName, c.CategoryID, p.CategoryID, p.ProductName from Categories as c
+inner join Products as p
+on c.CategoryID = p.CategoryID
+where CategoryName = 'Fast Food'
+
+Select c.CategoryName, c.CategoryID, p.CategoryID, p.ProductName from Products as p
+left join  Categories as c
+on c.CategoryID = p.CategoryID
+where CategoryName = 'Fast Food'
+
+Select c.CategoryName, c.CategoryID, p.CategoryID, p.ProductName from Products as p
+inner join  Categories as c
+on c.CategoryID = p.CategoryID
+
+Select c.CategoryName, c.CategoryID, p.CategoryID, p.ProductName from Categories as c
+left join Products as p
+on c.CategoryID = p.CategoryID
+where p.CategoryID is null
+
+insert into Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+values ('Burger Sabrosa', 1, 9, 'xyz', 68.7, 45, 12, 2, 0)
+
+insert into Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+values ('Guaracha Sabrosona', 1, null, 'xyz', 68.7, 45, 12, 2, 0)
+
+
+Select * from Products as p
+left join Categories as c
+on p.CategoryID = c.CategoryID
+where c.CategoryID is null
+
+-- 1. Listar los empleados y los pedidos que han gestionado (incluyendo los empleados que no han hecho pedidos) 
+
+Select CONCAT(e.FirstName, ' ', e.LastName), count(O.OrderID) from Employees as E 
+left join Orders as O 
+on E.EmployeeID = O.EmployeeID 
+group by e.FirstName, e.LastName
+
+
+-- 2. Listar todos los productos y sus categorías, incluso si no tienen categoría asignada
+
+Select * from Products
+Select * from Categories
+
+select c.CategoryName as 'Nombre de la categoria', count (c.CategoryID) 
+from Products as p
+left join Categories as c 
+on p.CategoryID = c.CategoryID
+group by c.CategoryName
+
+select p.ProductName as 'Nombre del Producto', c.CategoryName
+from Products as p
+left join Categories as c 
+on p.CategoryID = c.CategoryID
+group by p.ProductName,  c.CategoryName
+
+--3. Mostrar todos los pedidos y la información del cliente, incluyendo pedidos sin clientes asignados
+select * from Orders
+select * from Customers
+
+select o.OrderID as 'Id Orden', c.CompanyName as 'Cliente'
+from Orders as o
+left join Customers as c
+on o.CustomerID = c.CustomerID
+group by o.OrderID, c.CompanyName
+
+-- 2.
+
+-- 3. 
+
+-- 4.
 
 --Consultas Avanzadas
+
 
 use Northwind;
