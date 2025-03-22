@@ -1,3 +1,7 @@
+## Vistas
+
+```SQL
+
 --Views
 
 --Una vista sirve para encapsular una consulta muy grande
@@ -173,17 +177,3 @@ on c.CategoryID = p.CategoryID;
 GO
 
 select * from rh.viewcategoriasproductos
-
-
-/*
-SELECT 
-    v.Id_Empleado, 
-    e.Nombre, 
-    SUM(v.Importe) AS Total_Ventas, 
-    c.Cuota_Mensual,
-    (SUM(v.Importe) / c.Cuota_Mensual) * 100 AS Porcentaje_Cumplimiento
-FROM Ventas v
-JOIN Empleados e ON v.Id_Empleado = e.Id_Empleado
-JOIN Cuotas c ON v.Id_Empleado = c.Id_Empleado
-WHERE (SUM(v.Importe) / c.Cuota_Mensual) >= 0.80  -- Filtrar empleados con >= 80% de la cuota
-GROUP BY v.Id_Empleado, e.Nombre, c.Cuota_Mensual;*/

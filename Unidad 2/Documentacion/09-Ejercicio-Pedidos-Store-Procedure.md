@@ -1,4 +1,4 @@
-## EJercicio de pedidos con Store Procedure
+## Ejercicio de pedidos con Store Procedure
 - Realizar un pedido 
 - Validar que el pedido no exista 
 - Validar que el cliente exista, que el empleado exista y producto
