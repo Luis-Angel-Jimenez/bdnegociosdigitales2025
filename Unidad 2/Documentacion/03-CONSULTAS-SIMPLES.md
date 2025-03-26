@@ -1,9 +1,10 @@
 ## Consultas Simples
+## Hecho por : Luis Angel Jimenez
 
+
+- Lenguaje SQL-LMD (Insert, Update, Delete, Select CRUD)
+- Consultas Simples 
 ```SQL
--- Lenguaje SQL-LMD (Insert, Update, Delete, Select CRUD)
---Consultas Simples 
-
 use Northwind;
 
 --Mostrar todos los clientes, prveedores, categorias, prodcutos, ordenes, detalle de orden con todas las columnas de datos de la empresa

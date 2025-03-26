@@ -1,8 +1,10 @@
 ## Consultas Avanzadas
+## Hecho por : Luis Angel Jimenez
 
+
+
+- Join (Juntar) INNER (Default), LEFT (), RIGHT (), CROSS (), FULL (). 
 ```SQL
-
---Join (Juntar) INNER (Default), LEFT (), RIGHT (), CROSS (), FULL (). 
 use Northwind;
 --Seleccionar todas las categorias y productos
 Select * from 

@@ -1,10 +1,10 @@
 ## Consultas de agregado
+## Hecho por : Luis Angel Jimenez
 
+
+- Consultas de Agregados 
+- Nota: Solo devuelven un solo registro sum, avg, count(*), max, min
 ```SQL
-
--- Consultas de Agregados 
--- Nota: Solo devuelven un solo registro sum, avg, count(*), max, min
-
 --Cuantos clientes tengo
 
 use Northwind;

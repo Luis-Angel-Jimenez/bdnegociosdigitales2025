@@ -1,11 +1,10 @@
 ## Transact Funciones Cadena
+## Hecho por : Luis Angel Jimenez
 
+
+
+- Funciones de Cadena: las funciones de Cadena permiten manipular tipos de datos como varchar, nvarchar, char, nchar
 ```SQL
-
---Funciones de Cadena
---las funciones de Cadena permiten manipular tipos de datos como varchar, 
--- nvarchar, char, nchar
-
 --Funcion Len -> Devuelve la longitud de una cadena
 
 --Declaracion de una variable

@@ -1,4 +1,5 @@
 ## Ejemplo de Left Join 
+## Hecho por : Luis Angel Jimenez
 
 ```SQL
 

@@ -1,11 +1,12 @@
-## Vistas
+## Views
+## Hecho por : Luis Angel Jimenez
 
+
+
+- Views
+
+- Una vista sirve para encapsular una consulta muy grande
 ```SQL
-
---Views
-
---Una vista sirve para encapsular una consulta muy grande
-
 /*create view nombreVista
 AS
 Select columnas 
