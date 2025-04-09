@@ -91,3 +91,7 @@ go
 
 Delete from Pedidos
 where Num_Pedido = 113071
+
+select * from Productos where Id_fab = 'ACI' and Id_producto = '41001'
+
+SELECT * FROM Pedidos WHERE Num_Pedido = 113071
