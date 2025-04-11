@@ -97,7 +97,7 @@ db.Empleado.find({region: {$regex: /V/i}})
 
 9. Visualizar los apellidos de los empleados ordenados por el propio apellido.
 ```json
-db.Empleado.find({},{apellido:1}).sort({apellido: 1})
+db.Empleado.find({},{apellidos:1}).sort({apellidos: 1})
 ```
 ![Respuesta](../img/37.png)
 
