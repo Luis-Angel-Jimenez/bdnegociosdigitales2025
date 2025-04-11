@@ -1,10 +1,4 @@
-# **Practica 2**
 
-# Consultas
-
-1. Cargar el archivo empleados.json
-```json
-db.Empleado.insertMany([
 	{
 		"nombre": "Gregory",
 		"apellidos": "Juarez",
@@ -16,7 +10,7 @@ db.Empleado.insertMany([
 		"ventas": 26890,
 		"salario": 3265,
 		"departamentos": "Legal Department, Accounting, Media Relations, Research and Development"
-	},
+	}
 	{
 		"nombre": "Candace",
 		"apellidos": "Buck",
@@ -28,7 +22,7 @@ db.Empleado.insertMany([
 		"ventas": 1023,
 		"salario": 6657,
 		"departamentos": "Asset Management, Sales and Marketing, Media Relations"
-	},
+	}
 	{
 		"nombre": "Lee",
 		"apellidos": "Lyons",
@@ -40,7 +34,7 @@ db.Empleado.insertMany([
 		"ventas": 33530,
 		"salario": 8245,
 		"departamentos": "Asset Management, Advertising, Human Resources, Tech Support, Payroll"
-	},
+	}
 	{
 		"nombre": "Imogene",
 		"apellidos": "Nolan",
@@ -52,7 +46,7 @@ db.Empleado.insertMany([
 		"ventas": 938,
 		"salario": 6892,
 		"departamentos": "Payroll, Public Relations, Customer Service, Advertising"
-	},
+	}
 	{
 		"nombre": "Jana",
 		"apellidos": "Sykes",
@@ -64,7 +58,7 @@ db.Empleado.insertMany([
 		"ventas": 14292,
 		"salario": 3912,
 		"departamentos": "Customer Relations, Finances, Sales and Marketing, Media Relations"
-	},
+	}
 	{
 		"nombre": "Olympia",
 		"apellidos": "Ruiz",
@@ -76,7 +70,7 @@ db.Empleado.insertMany([
 		"ventas": 37972,
 		"salario": 8513,
 		"departamentos": "Asset Management, Media Relations, Human Resources, Research and Development"
-	},
+	}
 	{
 		"nombre": "Sopoline",
 		"apellidos": "Cummings",
@@ -88,7 +82,7 @@ db.Empleado.insertMany([
 		"ventas": 20335,
 		"salario": 5504,
 		"departamentos": "Accounting, Customer Service, Public Relations, Media Relations, Payroll"
-	},
+	}
 	{
 		"nombre": "Omar",
 		"apellidos": "Gentry",
@@ -100,7 +94,7 @@ db.Empleado.insertMany([
 		"ventas": 2151,
 		"salario": 1405,
 		"departamentos": "Human Resources, Payroll, Research and Development, Media Relations"
-	},
+	}
 	{
 		"nombre": "Kieran",
 		"apellidos": "Saunders",
@@ -112,7 +106,7 @@ db.Empleado.insertMany([
 		"ventas": 39042,
 		"salario": 3244,
 		"departamentos": "Human Resources, Finances, Advertising, Legal Department, Customer Service"
-	},
+	}
 	{
 		"nombre": "Arthur",
 		"apellidos": "Hyde",
@@ -124,7 +118,7 @@ db.Empleado.insertMany([
 		"ventas": 11103,
 		"salario": 3180,
 		"departamentos": "Asset Management, Customer Relations, Customer Service, Accounting"
-	},
+	}
 	{
 		"nombre": "Philip",
 		"apellidos": "Herrera",
@@ -136,7 +130,7 @@ db.Empleado.insertMany([
 		"ventas": 5571,
 		"salario": 3873,
 		"departamentos": "Legal Department, Customer Relations, Tech Support, Advertising, Asset Management"
-	},
+	}
 	{
 		"nombre": "Heidi",
 		"apellidos": "Thornton",
@@ -148,7 +142,7 @@ db.Empleado.insertMany([
 		"ventas": 38009,
 		"salario": 5507,
 		"departamentos": "Payroll, Advertising, Finances, Legal Department, Human Resources"
-	},
+	}
 	{
 		"nombre": "Jameson",
 		"apellidos": "Velazquez",
@@ -160,7 +154,7 @@ db.Empleado.insertMany([
 		"ventas": 2543,
 		"salario": 8847,
 		"departamentos": "Public Relations, Advertising, Customer Relations, Human Resources"
-	},
+	}
 	{
 		"nombre": "Meghan",
 		"apellidos": "Adams",
@@ -172,7 +166,7 @@ db.Empleado.insertMany([
 		"ventas": 33227,
 		"salario": 3675,
 		"departamentos": "Sales and Marketing, Human Resources, Quality Assurance, Payroll"
-	},
+	}
 	{
 		"nombre": "Jaime",
 		"apellidos": "Mejia",
@@ -184,7 +178,7 @@ db.Empleado.insertMany([
 		"ventas": 31024,
 		"salario": 8110,
 		"departamentos": "Advertising, Payroll, Tech Support"
-	},
+	}
 	{
 		"nombre": "Anika",
 		"apellidos": "Russo",
@@ -196,7 +190,7 @@ db.Empleado.insertMany([
 		"ventas": 13004,
 		"salario": 6600,
 		"departamentos": "Asset Management, Quality Assurance, Media Relations, Research and Development"
-	},
+	}
 	{
 		"nombre": "Alexis",
 		"apellidos": "Phelps",
@@ -208,7 +202,7 @@ db.Empleado.insertMany([
 		"ventas": 23767,
 		"salario": 7945,
 		"departamentos": "Asset Management, Advertising, Media Relations"
-	},
+	}
 	{
 		"nombre": "Hadassah",
 		"apellidos": "Whitney",
@@ -220,7 +214,7 @@ db.Empleado.insertMany([
 		"ventas": 8183,
 		"salario": 5504,
 		"departamentos": "Accounting, Asset Management, Human Resources, Finances"
-	},
+	}
 	{
 		"nombre": "Basil",
 		"apellidos": "Owens",
@@ -232,7 +226,7 @@ db.Empleado.insertMany([
 		"ventas": 25059,
 		"salario": 8816,
 		"departamentos": "Accounting, Payroll, Legal Department, Human Resources, Public Relations"
-	},
+	}
 	{
 		"nombre": "Brady",
 		"apellidos": "Castillo",
@@ -245,102 +239,3 @@ db.Empleado.insertMany([
 		"salario": 5272,
 		"departamentos": "Quality Assurance, Human Resources, Advertising, Sales and Marketing"
 	}
-    ]
-    )
-```
-![Respuesta](../img/14.png)
-![Respuesta](../img/15.png)
-
-2. Utilizar la base de datos curso
-```json
-use curso
-```
-![Respuesta](../img/13.png)
-
-3. Buscar todos los empleados que trabajen en google
-```json
-db.Empleado.find({empresa: 'Google'})
-```
-![Respuesta](../img/16.png)
-
-4. Empleados que vivan en peru
-```json
-db.Empleado.find({pais: 'Peru'})
-```
-![Respuesta](../img/17.png)
-
-5. Empleados que ganen mas de 8000 dolares
-```json
-db.Empleado.find({salario: {$gt: 8000}})
-```
-![Respuesta](../img/18.png)
-
-6. Empleados con ventas inferiores a 10000
-```json
-db.Empleado.find({salario: {$lt: 10000}})
-```
-![Respuesta](../img/19.png)
-
-7. Realizar la consulta anterior pero devolviendo una sola fila
-```json
-db.Empleado.findOne({salario: {$lt: 10000}})
-```
-![Respuesta](../img/20.png)
-
-8. Empleados que trabajan en google o en yahoo con el operador $in
-```json
-db.Empleado.find(
-{
-    empresa: {$in: ['Google', 'Yahoo']}
-}
-)
-```
-![Respuesta](../img/21.png)
-
-9. Empleados de amazon que ganen mas de 8000 dolares
-```json
-db.Empleado.find(
-{
-    empresa: 'Amazon', salario: {$gt:8000}
-}
-)
-
-db.Empleado.find(
-{
-    $and: [{empresa: 'Amazon'}, {salario: {$gt:8000}}]
-}
-)
-
-```
-![Respuesta](../img/22.png)
-![Respuesta](../img/23.png)
-
-10. Empleados que trabajan en Google o en Yahoo con el operador $or
-
-```json
-db.Empleado.find(
-{
-    $or: [{empresa: 'Google'}, {empresa: 'Yahoo'}]
-}
-)
-```
-![Respuesta](../img/24.png)
-
-11. Empleados que trabajen en Yahoo que ganen mas de 6000 o empleados que trabajen en Google que tengan ventas inferiores a 20000
-```json
-db.Empleado.find(
-{
-    $and: [
-        {$or: [{empresa: 'Yahoo'}, {salario: {$gt: 6000}}]},
-        {$or: [{editorial: 'Google'}, {salario: {$lt: 20000}}]}
-    ]
-}
-)
-```
-![Respuesta](../img/25.png)
-
-12. Visualizar el nombre, apellidos y el país de cada empleado
-```json
-db.Empleado.find({},{nombre: 1 ,apellidos:1 ,pais:1})
-```
-![Respuesta](../img/26.png)
